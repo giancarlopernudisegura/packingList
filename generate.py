@@ -9,6 +9,7 @@ import json
 
 # arguments
 ap = ArgumentParser()
+ap.add_argument("-D", "--days", required=True, type=int, help="number of days")
 ap.add_argument("-S", "--sexe", required=True, help="sexe of user (m/f)")
 ap.add_argument("-H", "--hotel", required=False, action="store_true", help="if you're staying somewhere where hygien products will be supplied")
 ap.add_argument("-A", "--active", required=False, action="store_true", help="if you're going to be very active or not")
@@ -33,34 +34,35 @@ def addCheck(element):
 def numbered(num, label):
     addCheck("%d %s" % (num, label))
 
+def addList(list, days=0):
+    for elem in config[list]:
+        if days == 0:
+            addCheck(elem)
+        else:
+            numbered(days, elem)
+
 # adds clothing section
-def clothing(sexe, days):
+def clothing(sexe):
     title("Clothing")
 
-    # Why would you need a packing list generator for one day? lmao
-    assert days > 1
+    days = args["days"]
     if args["active"]:
         days = int(days * config["multiplier"])
-    numbered(days, "shirts")
-    numbered(days // 2, "pants")
-    numbered(days, "socks")
-    numbered(days, "underwear")
+    addList("clothing", days)
     if sexe:
-        numbered(days, "bras")
+        addList("clothingWomen", days)
 
 # adds the hygiene section
 def hyg(sexe):
     # sexe is a boolean
     title("Hygiene")
 
-    addCheck("deodorant")
-    addCheck("toothbrush + toothpaste")
+    addList("Hygiene")
     # all the optional items
     if sexe:
-        addCheck("tampons")
+        addList("hygieneWomen")
     if not args["hotel"]:
-        addCheck("bodywash/soap")
-        addCheck("shampoo")
+        addList("hygieneHotel")
 
 # adds all the custom section defined in the config
 def custom():
@@ -75,11 +77,13 @@ def main():
     print("Packing List\n")
     print("---\n")
     sexe = args["sexe"] == 'f'
-    clothing(sexe, 5)
+    clothing(sexe)
     hyg(sexe)
     custom()
 
 if __name__ == "__main__":
+     # Why would you need a packing list generator for one day? lmao
+    assert args["days"] > 1
     assert args["sexe"] in ('m', 'f'), "Sexe must be 'm' or 'f'"
     main()
 

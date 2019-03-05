@@ -1,5 +1,26 @@
 {
     "multiplier": 1.5,
+    "clothing": [
+        "shirts",
+        "pants",
+        "socks",
+        "underwear"
+    ],
+    "clothingWomen": [
+        "bras"
+    ],
+    "Hygiene": [
+        "shaving kit",
+        "deodorant",
+        "toothbrush + toothpaste"
+    ],
+    "hygieneWomen": [
+        "tampons"
+    ],
+    "hygieneHotel": [
+        "bodywash/soap",
+        "shampoo + conditioner"
+    ],
     "Military Kit": [
         "gun",
         "more guns",
