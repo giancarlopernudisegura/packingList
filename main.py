@@ -62,4 +62,4 @@ if __name__ == "__main__":
     except AttributeError:
         print("Closed")
     finally:
-        os.system("python generate.py -S %s > list.md" % ('f'))
+        os.system("python generate.py -D 5 -S %s -C | pandoc --output list.pdf" % ('f'))

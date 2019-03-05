@@ -23,17 +23,26 @@ with open('conf.json') as data_file:
 # global variables
 # None
 
+# print title header
+def title():
+    # print("---\n")
+    print("# Packing List\n")
+    # print("author: Giancarlo Pernudi Segura\n")
+    # print("---\n")
+
 # prints markdown header1
-def title(label):
-    print("# %s" % label)
+def section(label):
+    print("\n# %s" % label)
 
 # prints markdown checkbox
 def addCheck(element):
     print("- [ ] %s" % element)
 
+# prints markdown checkbox with a number infront
 def numbered(num, label):
     addCheck("%d %s" % (num, label))
 
+# adds checkboxes from a list in a config
 def addList(list, days=0):
     for elem in config[list]:
         if days == 0:
@@ -43,7 +52,7 @@ def addList(list, days=0):
 
 # adds clothing section
 def clothing(sexe):
-    title("Clothing")
+    section("Clothing")
 
     days = args["days"]
     if args["active"]:
@@ -55,7 +64,7 @@ def clothing(sexe):
 # adds the hygiene section
 def hyg(sexe):
     # sexe is a boolean
-    title("Hygiene")
+    section("Hygiene")
 
     addList("Hygiene")
     # all the optional items
@@ -69,13 +78,12 @@ def custom():
     if args["custom"] != None:
         lists = args["custom"].split(',')
         for list in lists:
-            title(list)
+            section(list)
             for element in config[list]:
                 addCheck(element)
 # runs all the section printing functions
 def main():
-    print("Packing List\n")
-    print("---\n")
+    title()
     sexe = args["sexe"] == 'f'
     clothing(sexe)
     hyg(sexe)
@@ -83,7 +91,7 @@ def main():
 
 if __name__ == "__main__":
      # Why would you need a packing list generator for one day? lmao
-    assert args["days"] > 1
+    assert args["days"] > 1, "lmao why do you need a list for one day? It needs to be a minimum of 2"
     assert args["sexe"] in ('m', 'f'), "Sexe must be 'm' or 'f'"
     main()
 
