@@ -4,23 +4,15 @@ Packing List
 
 # Clothing
 
-- [ ] 5 shirts
-
-- [ ] 2 pants
-
-- [ ] 5 socks
-
-- [ ] 5 undergarments
-
+- [ ] 50 shirts
+- [ ] 25 pants
+- [ ] 50 socks
+- [ ] 50 underwear
+- [ ] 50 bras
 # Hygiene
 
 - [ ] tampons
-
 - [ ] deodorant
-
 - [ ] bodywash/soap
-
 - [ ] shampoo
-
 - [ ] toothbrush + toothpaste
-
