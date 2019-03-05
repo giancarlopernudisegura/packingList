@@ -9,12 +9,10 @@ Packing List
 - [ ] 7 underwear
 - [ ] 7 bras
 # Hygiene
-- [ ] tampons
 - [ ] deodorant
-- [ ] bodywash/soap
-- [ ] shampoo
 - [ ] toothbrush + toothpaste
-# militaryKit
+- [ ] tampons
+# Military Kit
 - [ ] gun
 - [ ] more guns
-- [ ] used grenade
+- [ ] 1 used grenade

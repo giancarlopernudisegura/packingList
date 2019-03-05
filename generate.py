@@ -1,7 +1,7 @@
 # Author: Giancarlo Pernudi Segura
 # GitHub: https://github.com/giancarlopernudisegura/packingList
 # read the README.md for documentation
-# ---
+####
 
 # import statements
 from argparse import ArgumentParser
@@ -48,32 +48,38 @@ def clothing(sexe, days):
     if sexe:
         numbered(days, "bras")
 
-def hyg(sexe, hotel):
+# adds the hygiene section
+def hyg(sexe):
+    # sexe is a boolean
     title("Hygiene")
 
+    addCheck("deodorant")
+    addCheck("toothbrush + toothpaste")
+    # all the optional items
     if sexe:
         addCheck("tampons")
-    addCheck("deodorant")
-    if not hotel:
+    if not args["hotel"]:
         addCheck("bodywash/soap")
         addCheck("shampoo")
-    addCheck("toothbrush + toothpaste")
+
+# adds all the custom section defined in the config
+def custom():
     if args["custom"] != None:
         lists = args["custom"].split(',')
         for list in lists:
             title(list)
             for element in config[list]:
                 addCheck(element)
-
+# runs all the section printing functions
 def main():
     print("Packing List\n")
     print("---\n")
     sexe = args["sexe"] == 'f'
     clothing(sexe, 5)
-    if args["hotel"]:
-        hyg(sexe, False)
+    hyg(sexe)
+    custom()
 
+if __name__ == "__main__":
+    assert args["sexe"] in ('m', 'f'), "Sexe must be 'm' or 'f'"
+    main()
 
-
-assert args["sexe"] in ('m', 'f'), "Sexe must be 'm' or 'f'"
-main()

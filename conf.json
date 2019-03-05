@@ -1,8 +1,8 @@
 {
     "multiplier": 1.5,
-    "militaryKit": [
+    "Military Kit": [
         "gun",
         "more guns",
-        "used grenade"
+        "1 used grenade"
     ]
 }
