@@ -27,5 +27,11 @@
         "gun",
         "more guns",
         "1 used grenade"
+    ],
+    "Development Kit": [
+        "coffee maker",
+        "laptop",
+        "charger",
+        "router"
     ]
 }

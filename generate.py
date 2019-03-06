@@ -79,7 +79,8 @@ def hyg(sexe):
 def custom():
     if args["custom"] != None:
         lists = args["custom"].split(',')
-        for list in lists:
+        for l in lists:
+            list = l.strip()
             section(list)
             for element in config[list]:
                 addCheck(element)
