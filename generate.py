@@ -73,7 +73,7 @@ def hyg(sexe):
     if sexe:
         addList("hygieneWomen")
     if not args["hotel"]:
-        addList("hygieneHotel")
+        addList("hygiene!Hotel")
 
 # adds all the custom section defined in the config
 def custom():
