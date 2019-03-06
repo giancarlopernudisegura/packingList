@@ -14,7 +14,7 @@ For arguments options, run with the `--help` tag.
 You can edit evrything in the config `conf.json`. You can add custom list with a json array and then using the `-C` tag, separating multiple custom lists with a comma.
 
 Heres an example excerpt config file:
-```json
+```javascript
 {
     // other stuff would be here...
     "Military Kit": [
@@ -27,10 +27,17 @@ Heres an example excerpt config file:
         "laptop",
         "charger",
         "router"
+    ],
+    "Fancy Clothing": [
+        "suit",
+        "red tie",
+        "black oxford shoes",
+        "belt",
+        "watch"
     ]
 }
 ```
 You would run all the custom lists with this command
 ```shell
-python generate.py -D 5 -S m -C "Military Kit, Development Kit"
+python generate.py -D 5 -S m -C "Military Kit, Development Kit, Fancy Clothing"
 ```
