@@ -6,6 +6,7 @@
 # import statements
 from argparse import ArgumentParser
 import json
+from datetime import date
 
 # arguments
 ap = ArgumentParser()
@@ -25,10 +26,11 @@ with open('conf.json') as data_file:
 
 # print title header
 def title():
-    # print("---\n")
-    print("# Packing List\n")
-    # print("author: Giancarlo Pernudi Segura\n")
-    # print("---\n")
+    print("---")
+    print("title: %s" % config["title"])
+    print("author: %s" % config["author"])
+    print("date: %s" % date.today())
+    print("...\n")
 
 # prints markdown header1
 def section(label):
