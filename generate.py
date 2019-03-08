@@ -14,7 +14,9 @@ ap.add_argument("-D", "--days", required=True, type=int, help="number of days")
 ap.add_argument("-S", "--sexe", required=True, help="sexe of user (m/f)")
 ap.add_argument("-H", "--hotel", required=False, action="store_true", help="if you're staying somewhere where hygien products will be supplied")
 ap.add_argument("-A", "--active", required=False, action="store_true", help="if you're going to be very active or not")
-ap.add_argument("-C", "--custom", required=False, help="list custom arrays in config file, separate multiple lists by a comma")
+ap.add_argument("-C", "--camping", required=False, action="store_true", help="flag for camping equipment list")
+ap.add_argument("-c", "--custom", required=False, help="list custom arrays in config file, separate multiple lists by a comma")
+ap.add_argument("-d", "--date", required=False, action="store_true", help="puts current date at the top of the list")
 args = vars(ap.parse_args())
 
 # opens the config
@@ -29,7 +31,8 @@ def title():
     print("---")
     print("title: %s" % config["title"])
     print("author: %s" % config["author"])
-    print("date: %s" % date.today())
+    if args["date"]:
+        print("date: %s" % date.today())
     print("...\n")
 
 # prints markdown header1
@@ -75,6 +78,12 @@ def hyg(sexe):
     if not args["hotel"]:
         addList("hygiene!Hotel")
 
+# adds the camping section
+def camp():
+    section("Camping")
+
+    addList("Camping")
+
 # adds all the custom section defined in the config
 def custom():
     if args["custom"] != None:
@@ -84,12 +93,15 @@ def custom():
             section(list)
             for element in config[list]:
                 addCheck(element)
+
 # runs all the section printing functions
 def main():
     title()
     sexe = args["sexe"] == 'f'
     clothing(sexe)
     hyg(sexe)
+    if args["camping"]:
+        camp()
     custom()
 
 if __name__ == "__main__":

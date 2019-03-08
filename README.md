@@ -11,7 +11,7 @@ python generate.py -D 5 S m | pandoc -o list.pdf
 ```
 For arguments options, run with the `--help` tag.
 
-You can edit evrything in the config `conf.json`. You can add custom list with a json array and then using the `-C` tag, separating multiple custom lists with a comma.
+You can edit evrything in the config `conf.json`. You can add custom list with a json array and then using the `-c` tag, separating multiple custom lists with a comma.
 
 Heres an example excerpt config file:
 ```javascript
@@ -39,5 +39,5 @@ Heres an example excerpt config file:
 ```
 You would run all the custom lists with this command
 ```shell
-python generate.py -D 5 -S m -C "Military Kit, Development Kit, Fancy Clothing"
+python generate.py -D 5 -S m -c "Military Kit, Development Kit, Fancy Clothing"
 ```

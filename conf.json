@@ -14,7 +14,8 @@
     "Hygiene": [
         "shaving kit",
         "deodorant",
-        "toothbrush + toothpaste"
+        "toothbrush + toothpaste",
+        "hairbrush"
     ],
     "hygieneWomen": [
         "tampons"
@@ -24,12 +25,17 @@
         "shampoo + conditioner",
         "towel"
     ],
+    "Camping": [
+        "tent",
+        "sleeping bag",
+        "lamplight"
+    ],
     "Military Kit": [
         "gun",
         "more guns",
         "1 used grenade"
     ],
-    "Development Kit": [
+    "Development": [
         "coffee maker",
         "laptop",
         "charger",
@@ -38,6 +44,7 @@
     "Fancy Clothing": [
         "suit",
         "red tie",
+        "turtleneck",
         "black oxford shoes",
         "belt",
         "watch"
